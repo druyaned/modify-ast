@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+        http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+  
+  <groupId>druyaned</groupId>
+  <artifactId>modify-ast</artifactId>
+  <version>1.0</version>
+  
+  <name>Modify AST</name>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
+    <basePackage>druyaned.modifyast</basePackage>
+  </properties>
+  
+  <build>
+    
+    <pluginManagement><plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.13.0</version>
+        <configuration>
+          <compilerArgs>
+            <arg>--add-exports</arg>
+            <arg>jdk.compiler/com.sun.tools.javac.code=druyaned.ast</arg>
+            <arg>--add-exports</arg>
+            <arg>jdk.compiler/com.sun.tools.javac.processing=druyaned.ast</arg>
+            <arg>--add-exports</arg>
+            <arg>jdk.compiler/com.sun.tools.javac.comp=druyaned.ast</arg>
+            <arg>--add-exports</arg>
+            <arg>jdk.compiler/com.sun.tools.javac.tree=druyaned.ast</arg>
+            <arg>--add-exports</arg>
+            <arg>jdk.compiler/com.sun.tools.javac.util=druyaned.ast</arg>
+            <arg>--add-exports</arg>
+            <arg>jdk.compiler/com.sun.tools.javac.model=druyaned.ast</arg>
+          </compilerArgs>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>3.0.2</version>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Built-By>druyaned</Built-By>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins></pluginManagement>
+    
+    <plugins>
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+      </plugin>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+      </plugin>
+    </plugins>
+    
+  </build>
+  
+</project>
